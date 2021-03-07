@@ -5,13 +5,13 @@ You will build a PHP Web Application for our client “Zippy Used Autos”.
 The design of your PHP Application should follow the MVC design pattern. There will be more than one controller and the design will be discussed further in class and on Blackboard.
 
 ## Database:
-- [ ] Zippy has a small inventory of 10 vehicles on his lot. He has provided the details for the vehicles in the attached Excel spreadsheet.
+- [x] Zippy has a small inventory of 10 vehicles on his lot. He has provided the details for the vehicles in the attached Excel spreadsheet.
 
-- [ ] You will need to create a database named “zippyusedautos”.
+- [x] You will need to create a database named “zippyusedautos”.
 
-- [ ] The database should contain 4 tables: vehicles, makes, types, and classes.
+- [x] The database should contain 4 tables: vehicles, makes, types, and classes.
 
-- [ ] Provide foreign key relationships to link the tables.
+- [x] Provide foreign key relationships to link the tables.
 
 ## The Public Homepage:
 - [ ] Zippy wants it to simply list ALL of his inventory by default when the page loads.
