@@ -17,9 +17,13 @@
                     $year = $vehicle['year'];
                     $model = $vehicle['model'];
                     $price = $vehicle['price'];
+                    // TODO: Query type name by id
                     $type_id = $vehicle['type_id'];
+                    // TODO: Query class name by id
                     $class_id = $vehicle['class_id'];
+                    // TODO: Query make name by id
                     $make_id = $vehicle['make_id'];
+                    // TODO: Update table below to show type, class, make names
                 ?>
                     <tr>
                         <td><?= $year ?></td>
