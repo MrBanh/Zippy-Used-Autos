@@ -24,6 +24,8 @@ switch ($action) {
         $sort_by = filter_input(INPUT_GET, 'sort_by', FILTER_SANITIZE_STRING) ?? 'price';
 
         if ($make_id || $type_id || $class_id || $sort_by) {
+            // filters array used to implement EC (a), where it filters
+            // results based on combination of make, type, and class
             $filters = [];
             if ($make_id) {
                 $filters['make_id'] = $make_id;
@@ -36,6 +38,17 @@ switch ($action) {
             if ($class_id) {
                 $filters['class_id'] = $class_id;
             }
+
+            // This is the implementation WITHOUT EC, just simple if-elseif statements
+            // make { + type || + class }, then it filters only by make due to precedence
+            // type { +class }, returns records by type
+            // if ($make_id) {
+            //     $filters['make_id'] = $make_id;
+            // } elseif ($type_id) {
+            //     $filters['type_id'] = $type_id;
+            // } else if ($class_id) {
+            //     $filters['class_id'] = $class_id;
+            // }
 
             $vehicles_list = get_vehicles_filtered($sort_by, $filters);
         } else {

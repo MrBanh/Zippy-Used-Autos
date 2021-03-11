@@ -14,19 +14,19 @@ The design of your PHP Application should follow the MVC design pattern. There w
 - [x] Provide foreign key relationships to link the tables.
 
 ## The Public Homepage:
-- [ ] Zippy wants it to simply list ALL of his inventory by default when the page loads.
+- [x] Zippy wants it to simply list ALL of his inventory by default when the page loads.
 
-- [ ] The list should be ordered by most expensive vehicle first and descend to least expensive.
+- [x] The list should be ordered by most expensive vehicle first and descend to least expensive.
 
-- [ ] Customers should be able to change the sort order to year (also descending) or back to price.
+- [x] Customers should be able to change the sort order to year (also descending) or back to price.
 
-- [ ] The sort order input (price or year) may be a drop down menu or radio buttons.
+- [x] The sort order input (price or year) may be a drop down menu or radio buttons.
 
-- [ ] Customers should be able to choose to display only a specific make, type, or class of vehicle.
+- [x] Customers should be able to choose to display only a specific make, type, or class of vehicle.
 
-- [ ] You do not need to provide combinations of the above... Just make OR type OR class queries.
+- [x] You do not need to provide combinations of the above... Just make OR type OR class queries.
 
-- [ ] These make, type, or class selections should be made from drop-down menus.
+- [x] These make, type, or class selections should be made from drop-down menus.
 
 ## Zippy’s Admin Backend:
 
