@@ -1,14 +1,14 @@
 <?php
-require_once('model/database.php');
-require_once('util/util.php');
+require_once('../model/database.php');
+require_once('../util/util.php');
 
 // Model - table php files
-require_once('model/vehicles_table.php');
-require_once('model/makes_table.php');
-require_once('model/types_table.php');
-require_once('model/classes_table.php');
+require_once('../model/vehicles_table.php');
+require_once('../model/makes_table.php');
+require_once('../model/types_table.php');
+require_once('../model/classes_table.php');
 
-$isAdmin = false;
+$isAdmin = true;
 
 $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
 if (!$action) {
@@ -67,7 +67,9 @@ switch ($action) {
             $vehicles_list[$key]['class_name'] = get_class_name($vehicle['class_id']);
         }
 
-        include('view/vehicles_list.php');
+        include('../view/vehicles_list.php');
+        break;
+    case 'delete_vehicle':
         break;
 }
 

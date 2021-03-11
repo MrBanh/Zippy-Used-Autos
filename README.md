@@ -30,7 +30,7 @@ The design of your PHP Application should follow the MVC design pattern. There w
 
 ## Zippy’s Admin Backend:
 
-- [ ] Zippy’s admin area should be in a subdirectory named admin. URL ends in: /admin/
+- [x] Zippy’s admin area should be in a subdirectory named admin. URL ends in: /admin/
 
 - [ ] The starting page is a list like customers see, but also allows Zippy to delete any vehicle.
 
