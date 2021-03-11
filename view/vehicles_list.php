@@ -35,6 +35,9 @@
                             <td>
                                 <form action="." METHOD="POST" class="delete_form">
                                     <input type="hidden" name="action" value="delete_vehicle">
+                                    <input type="hidden" name="year" value="<?= $year ?>">
+                                    <input type="hidden" name="model" value="<?= $model ?>">
+                                    <input type="hidden" name="price" value="<?= $price ?>">
                                     <input type="hidden" name="make_id" value="<?= $vehicle['make_id'] ?>">
                                     <input type="hidden" name="type_id" value="<?= $vehicle['type_id'] ?>">
                                     <input type="hidden" name="class_id" value="<?= $vehicle['class_id'] ?>">

@@ -23,7 +23,7 @@ switch ($action) {
         $make_id = filter_input(INPUT_GET, 'make_id', FILTER_VALIDATE_INT);
         $type_id = filter_input(INPUT_GET, 'type_id', FILTER_VALIDATE_INT);
         $class_id = filter_input(INPUT_GET, 'class_id', FILTER_VALIDATE_INT);
-        $sort_by = filter_input(INPUT_GET, 'sort_by', FILTER_SANITIZE_STRING) ?? 'price';
+        $sort_by = filter_input(INPUT_GET, 'sort_by', FILTER_SANITIZE_STRING);
 
         if ($make_id || $type_id || $class_id || $sort_by) {
             // filters array used to implement EC (a), where it filters
@@ -70,6 +70,27 @@ switch ($action) {
         include('../view/vehicles_list.php');
         break;
     case 'delete_vehicle':
+        $year = filter_input(INPUT_POST, 'year', FILTER_SANITIZE_STRING);
+        $model = filter_input(INPUT_POST, 'model', FILTER_SANITIZE_STRING);
+        $price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);
+        $make_id = filter_input(INPUT_POST, 'make_id', FILTER_VALIDATE_INT);
+        $type_id = filter_input(INPUT_POST, 'type_id', FILTER_VALIDATE_INT);
+        $class_id = filter_input(INPUT_POST, 'class_id', FILTER_VALIDATE_INT);
+
+        $ids = array(
+            "make_id" => $make_id,
+            "type_id" => $type_id,
+            "class_id" => $class_id
+        );
+
+        if ($year && $model && $price) {
+            $count = delete_vehicle($year, $model, $price, $ids);
+            header("Location: ./?deleted_vehicle={$count}");
+        } else {
+            $error_message = 'Invalid vehicle data';
+            include('../view/error.php');
+        }
+
         break;
 }
 
