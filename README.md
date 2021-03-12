@@ -32,13 +32,13 @@ The design of your PHP Application should follow the MVC design pattern. There w
 
 - [x] Zippy’s admin area should be in a subdirectory named admin. URL ends in: /admin/
 
-- [ ] The starting page is a list like customers see, but also allows Zippy to delete any vehicle.
+- [x] The starting page is a list like customers see, but also allows Zippy to delete any vehicle.
 
 - [ ] Zippy needs pages to list makes, types, and classes where he can add more or delete them.
 
-- [ ] He also needs a page to add new vehicles to his list.
+- [x] He also needs a page to add new vehicles to his list.
 
-- [ ] Do not link to the admin pages from the public page of Zippy’s app. We will only tell Zippy the address of this page. We have not covered creating a secure login yet, and I will not expect it for this midterm project.
+- [x] Do not link to the admin pages from the public page of Zippy’s app. We will only tell Zippy the address of this page. We have not covered creating a secure login yet, and I will not expect it for this midterm project.
 
 ## Styling
 - [ ] Zippy realizes that over 50% of people browsing the web for a new vehicle will be using a mobile device. Please apply Responsive Design to Zippy’s application. While Zippy understands he did not hire a dedicated front-end developer, we should be able to provide a basic design that confirms to mobile phones, tablets, and larger screens. It also helps to design for the smallest device screen first. In Chrome Dev Tools, this is an iPhone 5. Work your way up to larger screens with media queries and test the display in dev tools. Note: Many back end devs use Bootstrap, Semantic UI, or similar frameworks instead of CSS from scratch. Frameworks are not required but may help you with the responsiveness and appearance of your application.
