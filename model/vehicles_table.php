@@ -41,6 +41,38 @@
     }
 
     /**
+     * Adds a vehicle to the vehicles table
+     *
+     * @param {String} $year - Vehicle's year
+     * @param {String} $model - Vehicle's model
+     * @param {String} $price - Vehicle's price
+     * @param {Integer} $make_id - Vehicle's make_id
+     * @param {Integer} $type_id - Vehicle's type_id
+     * @param {Integer} $class_id - Vehicle's class_id
+     * @return {Integer} $count - Count of records affected in database
+     */
+    function add_vehicle($year, $model, $price, $make_id, $type_id, $class_id) {
+        global $db;
+        $count = 0;
+
+        $query = "INSERT INTO vehicles (year, model, price, make_id, type_id, class_id)
+                    VALUES (:year, :model, :price, :make_id, :type_id, :class_id)";
+
+        $statement = $db->prepare($query);
+        $statement->bindValue(':year', $year);
+        $statement->bindValue(':model', $model);
+        $statement->bindValue(':price', $price);
+        $statement->bindValue(':make_id', $make_id);
+        $statement->bindValue(':type_id', $type_id);
+        $statement->bindValue(':class_id', $class_id);
+        if ($statement->execute()) {
+            $count = $statement->rowCount();
+        }
+        $statement->closeCursor();
+        return $count;
+    }
+
+    /**
      * Deletes a vehicle from the vehicles table based on provided
      * year, model, price, {+ make_id, type_id, and class_id }
      *
@@ -52,6 +84,7 @@
      */
     function delete_vehicle($year, $model, $price, $ids) {
         global $db;
+        $count = 0;
         $query = "DELETE FROM vehicles WHERE year = :year AND model = :model AND price = :price";
 
         // Get the WHERE clause query expressions for provided ids
@@ -63,6 +96,8 @@
             $query .= ' AND ';
             $query .= implode(' AND ', $query_array);
         }
+
+        $query .= ' LIMIT 1';
 
         $statement = $db->prepare($query);
         $statement->bindValue(':year', $year);

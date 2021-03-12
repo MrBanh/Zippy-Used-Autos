@@ -69,6 +69,32 @@ switch ($action) {
 
         include('../view/vehicles_list.php');
         break;
+
+    case "add_vehicle_form":
+        $makes_list = get_makes();
+        $types_list = get_types();
+        $classes_list = get_classes();
+        include('../view/add_vehicle_form.php');
+        break;
+
+    case "add_vehicle":
+        $year = filter_input(INPUT_POST, 'year', FILTER_SANITIZE_STRING);
+        $model = filter_input(INPUT_POST, 'model', FILTER_SANITIZE_STRING);
+        $price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);
+        $make_id = filter_input(INPUT_POST, 'make_id', FILTER_VALIDATE_INT);
+        $type_id = filter_input(INPUT_POST, 'type_id', FILTER_VALIDATE_INT);
+        $class_id = filter_input(INPUT_POST, 'class_id', FILTER_VALIDATE_INT);
+
+        if ($year && $model && $price && $make_id && $type_id && $class_id) {
+            $count = add_vehicle($year, $model, $price, $make_id, $type_id, $class_id);
+            header("Location: .?added_vehicle={$count}");
+        } else {
+            $error_message = 'Invalid vehicle data';
+            include('../view/error.php');
+        }
+
+        break;
+
     case 'delete_vehicle':
         $year = filter_input(INPUT_POST, 'year', FILTER_SANITIZE_STRING);
         $model = filter_input(INPUT_POST, 'model', FILTER_SANITIZE_STRING);
@@ -90,7 +116,6 @@ switch ($action) {
             $error_message = 'Invalid vehicle data';
             include('../view/error.php');
         }
-
         break;
 }
 

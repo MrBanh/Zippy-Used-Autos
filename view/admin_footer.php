@@ -6,6 +6,11 @@
                 - View/Edit Vehicle Types (if not on view_edit_types_form)
                 - View/Edit Vehicle Classes (if not on view_edit_classes_form)
  -->
+ <div class="links">
+    <?php if ($action != 'add_vehicle_form') { ?>
+        <p><a href="?action=add_vehicle_form">Click here</a> to add a vehicle</p>
+    <?php } ?>
+ </div>
 </main>
 <footer>
     <p class="copyright">&copy; <?= date("Y"); ?> Zippy Used Autos</p>
