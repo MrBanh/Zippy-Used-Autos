@@ -1,6 +1,6 @@
  <div class="links">
     <?php if ($action != 'vehicles_list') { ?>
-        <p><a href="?action=vehicles_list">View Full Vehicle List</a></p>
+        <p><a href=".">View Full Vehicle List</a></p>
     <?php } ?>
 
     <?php if ($action != 'add_vehicle_form') { ?>
