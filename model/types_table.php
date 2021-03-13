@@ -29,4 +29,41 @@
         return $type['type_name'] ?? null;
     }
 
+    /**
+     * Add a new vehicle type to the types table in the database
+     * @param { string } $type_name - Vehicle type name
+     * @return { int } $count - Row affected in database
+     */
+    function add_type($type_name) {
+        global $db;
+        $count = 0;
+        $query = "INSERT INTO types (type_name)
+                    VALUES (:type_name)";
+        $statement = $db->prepare($query);
+        $statement->bindValue(':type_name', $type_name);
+        if ($statement->execute()) {
+            $count = $statement->rowCount();
+        }
+        $statement->closeCursor();
+        return $count;
+    }
+
+    /**
+     * Deletes a vehicle type from the types table in the db
+     * @param { int } $type_id - Vehicle type id
+     * @return { int } $count - Row affected in database
+     */
+    function delete_type($type_id) {
+        global $db;
+        $count = 0;
+        $query = "DELETE FROM types
+                    WHERE type_id = :type_id";
+        $statement = $db->prepare($query);
+        $statement->bindValue(':type_id', $type_id);
+        if ($statement->execute()) {
+            $count = $statement->rowCount();
+        }
+        $statement->closeCursor();
+        return $count;
+    }
 ?>
