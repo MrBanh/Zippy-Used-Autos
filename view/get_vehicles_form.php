@@ -1,5 +1,5 @@
 <form action="." method="GET" class="filter_vehicles_list">
-    <input type="hidden" name="action" value="vehicles_list">
+    <input type="hidden" name="action" value="vehicles_list_filtered">
 
     <div class="form_group">
         <label for="make_id" aria-label="Filter by Make"></label>

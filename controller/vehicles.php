@@ -1,6 +1,7 @@
 <?php
 switch ($action) {
-    case 'vehicles_list': {
+    case 'vehicles_list':
+    case 'vehicles_list_filtered': {
         $make_id = filter_input(INPUT_GET, 'make_id', FILTER_VALIDATE_INT);
         $type_id = filter_input(INPUT_GET, 'type_id', FILTER_VALIDATE_INT);
         $class_id = filter_input(INPUT_GET, 'class_id', FILTER_VALIDATE_INT);
@@ -52,7 +53,7 @@ switch ($action) {
         break;
     }
 
-    case "add_vehicle_form": {
+    case 'add_vehicle_form': {
         $makes_list = get_makes();
         $types_list = get_types();
         $classes_list = get_classes();
@@ -60,7 +61,7 @@ switch ($action) {
         break;
     }
 
-    case "add_vehicle": {
+    case 'add_vehicle': {
         $year = filter_input(INPUT_POST, 'year', FILTER_SANITIZE_STRING);
         $model = filter_input(INPUT_POST, 'model', FILTER_SANITIZE_STRING);
         $price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);
