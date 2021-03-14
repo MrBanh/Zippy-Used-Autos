@@ -40,11 +40,17 @@ The design of your PHP Application should follow the MVC design pattern. There w
 
 - [x] Do not link to the admin pages from the public page of Zippy’s app. We will only tell Zippy the address of this page. We have not covered creating a secure login yet, and I will not expect it for this midterm project.
 
+## Extra Credit:
+- [x] Provide list results that combine the desired make, type, and class. For example, display a list of only Chevy SUV vehicles in the Economy class. The display of the drop-down menus should reflect the user choices when results show.
+
+- [x] Provide an admin footer menu that adapts to the page that is displaying it. The footer should only link to other admin pages and not the one you are currently using. This can be accomplished with logic and one admin footer file.
+
+
 ## Styling
 - [x] Zippy realizes that over 50% of people browsing the web for a new vehicle will be using a mobile device. Please apply Responsive Design to Zippy’s application. While Zippy understands he did not hire a dedicated front-end developer, we should be able to provide a basic design that confirms to mobile phones, tablets, and larger screens. It also helps to design for the smallest device screen first. In Chrome Dev Tools, this is an iPhone 5. Work your way up to larger screens with media queries and test the display in dev tools. Note: Many back end devs use Bootstrap, Semantic UI, or similar frameworks instead of CSS from scratch. Frameworks are not required but may help you with the responsiveness and appearance of your application.
 
 ## Deploy
-- [ ] When complete, deploy Zippy’s web app to Heroku. You will need to export your dev database from myPhpAdmin and import it into Heroku’s JawsDB version of MySQL. Utilize the directions for Heroku deployment in Blackboard to accomplish this.
+- [x] When complete, deploy Zippy’s web app to Heroku. You will need to export your dev database from myPhpAdmin and import it into Heroku’s JawsDB version of MySQL. Utilize the directions for Heroku deployment in Blackboard to accomplish this.
 
 ## Submission
 - [ ] A link to your GitHub code repository (no code updates after the due date accepted on the Midterm)
