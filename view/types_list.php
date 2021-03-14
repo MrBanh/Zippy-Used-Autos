@@ -30,5 +30,6 @@
     </div>
 
     <?php include('add_type_form.php'); ?>
+    <?php include('status.php'); ?>
 </section>
 <?php include('admin_footer.php'); ?>

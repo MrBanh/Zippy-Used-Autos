@@ -39,12 +39,17 @@
         $count = 0;
         $query = "INSERT INTO types (type_name)
                     VALUES (:type_name)";
-        $statement = $db->prepare($query);
-        $statement->bindValue(':type_name', $type_name);
-        if ($statement->execute()) {
-            $count = $statement->rowCount();
+        try {
+            $statement = $db->prepare($query);
+            $statement->bindValue(':type_name', $type_name);
+            if ($statement->execute()) {
+                $count = $statement->rowCount();
+            }
+        } catch (PDOException $e) {
+            $count = 0;
+        } finally {
+            $statement->closeCursor();
         }
-        $statement->closeCursor();
         return $count;
     }
 

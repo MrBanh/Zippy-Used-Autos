@@ -40,12 +40,17 @@
         $count = 0;
         $query = "INSERT INTO makes (make_name)
                     VALUES (:make_name)";
-        $statement = $db->prepare($query);
-        $statement->bindValue(':make_name', $make_name);
-        if ($statement->execute()) {
-            $count = $statement->rowCount();
+        try {
+            $statement = $db->prepare($query);
+            $statement->bindValue(':make_name', $make_name);
+            if ($statement->execute()) {
+                $count = $statement->rowCount();
+            }
+        } catch (PDOException $e) {
+            $count = 0;
+        } finally {
+            $statement->closeCursor();
         }
-        $statement->closeCursor();
         return $count;
     }
 

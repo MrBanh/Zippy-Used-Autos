@@ -30,5 +30,6 @@
     </div>
 
     <?php include('add_make_form.php'); ?>
+    <?php include('status.php'); ?>
 </section>
 <?php include('admin_footer.php'); ?>
