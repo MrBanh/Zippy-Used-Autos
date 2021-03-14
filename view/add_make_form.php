@@ -1,12 +1,12 @@
 <h2>Add Vehicle Make</h2>
-<form action="." method="POST" class="add_form">
+<form action="." method="POST" class="add_form container">
     <input type="hidden" name="action" value="add_make">
-    <div class="form_group">
-        <label for="make_name" class="form_label">Name: </label>
+    <div class="form_group row my-2">
+        <label for="make_name" class="form_label px-0">Name: </label>
         <input class="form_field" type="text" name="make_name" id="make_name" maxlength="100" autocomplete="off" aria-required="true" required>
     </div>
-    <div class="form_group">
+    <div class="form_group row my-2">
         <div></div>
-        <button class="submit_btn">Add Make</button>
+        <button class="btn btn-outline-primary">Add Make</button>
     </div>
 </form>

@@ -2,9 +2,9 @@
 <section class="vehicles_list">
     <?php include('get_vehicles_form.php'); ?>
 
-    <div class="list_container">
+    <div class="table_container table-responsive">
         <?php if (!empty($vehicles_list)) { ?>
-            <table>
+            <table class="table table-hover align-middle">
                 <tr>
                     <th>Year</th>
                     <th>Make</th>
@@ -33,7 +33,7 @@
 
                         <?php if($isAdmin) { ?>
                             <td>
-                                <form action="." METHOD="POST" class="delete_form">
+                                <form action="." METHOD="POST" class="delete_form text-end">
                                     <input type="hidden" name="action" value="delete_vehicle">
                                     <input type="hidden" name="year" value="<?= $year ?>">
                                     <input type="hidden" name="model" value="<?= $model ?>">
@@ -41,7 +41,7 @@
                                     <input type="hidden" name="make_id" value="<?= $vehicle['make_id'] ?>">
                                     <input type="hidden" name="type_id" value="<?= $vehicle['type_id'] ?>">
                                     <input type="hidden" name="class_id" value="<?= $vehicle['class_id'] ?>">
-                                    <button class="delete_btn">Remove</button>
+                                    <button class="btn btn-sm btn-danger ">Remove</button>
                                 </form>
                             </td>
                         <?php } ?>
