@@ -1,5 +1,5 @@
 <?php $isAdmin ? include('admin_header.php') : include('header.php'); ?>
-<h2>Error</h2>
+<h2 class="text-primary">Error</h2>
 <br>
 <p><?= $error_message ?></p>
 <br>

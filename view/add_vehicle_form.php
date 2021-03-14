@@ -1,6 +1,6 @@
 <?php include('admin_header.php'); ?>
 <section class="add_vehicle_form">
-    <h2>Add Vehicle</h2>
+    <h2 class="text-primary">Add Vehicle</h2>
 
     <form action="." method="post" class="add_form">
         <div class="container">

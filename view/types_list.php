@@ -1,6 +1,6 @@
 <?php include('admin_header.php'); ?>
 <section class="types_list">
-    <h2>Vehicle Type List</h2>
+    <h2 class="text-primary">Vehicle Type List</h2>
     <div class="table_container table-responsive">
         <?php if (!empty($types_list)) { ?>
             <table class="table table-hover align-middle">

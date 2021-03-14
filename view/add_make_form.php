@@ -1,4 +1,4 @@
-<h2>Add Vehicle Make</h2>
+<h2 class="text-primary">Add Vehicle Make</h2>
 <form action="." method="POST" class="add_form">
     <div class="container">
         <input type="hidden" name="action" value="add_make">
