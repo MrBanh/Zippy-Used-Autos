@@ -1,9 +1,9 @@
 <?php include('admin_header.php'); ?>
 <section class="classes_list">
     <h2>Vehicle Class List</h2>
-    <div>
+    <div class="table_container table-responsive">
         <?php if (!empty($classes_list)) { ?>
-            <table>
+            <table class="table table-hover align-middle">
                 <tr>
                     <th>Name</th>
                     <?= $isAdmin ? '<th></th>' : ''; ?>
@@ -14,10 +14,10 @@
                         <td><?= $class['class_name'] ?></td>
                         <?php if($isAdmin) { ?>
                             <td>
-                                <form action="." METHOD="POST" class="delete_form">
+                                <form action="." METHOD="POST" class="delete_form text-end">
                                     <input type="hidden" name="action" value="delete_class">
                                     <input type="hidden" name="class_id" value="<?= $class['class_id'] ?>">
-                                    <button class="delete_btn">Remove</button>
+                                    <button class="btn btn-sm btn-danger ">Remove</button>
                                 </form>
                             </td>
                         <?php } ?>

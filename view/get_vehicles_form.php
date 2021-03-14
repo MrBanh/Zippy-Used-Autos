@@ -1,7 +1,7 @@
-<form action="." method="GET" class="vehicles_list_filtered">
+<form action="." method="GET" class="vehicles_list_filtered container">
     <input type="hidden" name="action" value="vehicles_list_filtered">
 
-    <div class="form_group">
+    <div class="form_group row my-2">
         <label for="make_id" aria-label="Filter by Make"></label>
         <select name="make_id" id="make_id">
             <option value="" <?= (!$make_id ? 'selected' : '') ?>>View All Makes</option>
@@ -14,7 +14,7 @@
         </select>
     </div>
 
-    <div class="form_group">
+    <div class="form_group row my-2">
         <label for="type_id" aria-label="Filter by Type"></label>
         <select name="type_id" id="type_id">
             <option value="" <?= (!$type_id ? 'selected' : '') ?>>View All Types</option>
@@ -27,7 +27,7 @@
         </select>
     </div>
 
-    <div class="form_group">
+    <div class="form_group row my-2">
         <label for="class_id" aria-label="Filter by Class"></label>
         <select name="class_id" id="class_id">
             <option value="" <?= (!$class_id ? 'selected' : '') ?>>View All Classes</option>
@@ -40,11 +40,19 @@
         </select>
     </div>
 
+    <div class="d-flex justify-content-around align-items-center my-2">
+        <span class="sort_by">Sort by: </span>
 
-    <span class="sort_by">Sort by: </span>
-    <input type="radio" name="sort_by" id="sort_by_price" value="price" checked>
-    <label for="sort_by_price">Price</label>
-    <input type="radio" name="sort_by" id="sort_by_year" value="year" <?= $sort_by == 'year' ? 'checked' : '' ?>>
-    <label for="sort_by_year">Year</label>
-    <button type="submit" class="submit_btn">Submit</button>
+        <div>
+            <input type="radio" name="sort_by" id="sort_by_price" value="price" checked>
+            <label for="sort_by_price">Price</label>
+        </div>
+
+        <div>
+            <input type="radio" name="sort_by" id="sort_by_year" value="year" <?= $sort_by == 'year' ? 'checked' : '' ?>>
+            <label for="sort_by_year">Year</label>
+        </div>
+
+        <button type="submit" class="btn btn-outline-primary">Submit</button>
+    </div>
 </form>

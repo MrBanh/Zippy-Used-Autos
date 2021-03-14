@@ -20,6 +20,7 @@ if (!$action) {
 
 switch ($action) {
     case 'vehicles_list':
+    case 'vehicles_list_filtered': {
         $make_id = filter_input(INPUT_GET, 'make_id', FILTER_VALIDATE_INT);
         $type_id = filter_input(INPUT_GET, 'type_id', FILTER_VALIDATE_INT);
         $class_id = filter_input(INPUT_GET, 'class_id', FILTER_VALIDATE_INT);
@@ -69,6 +70,7 @@ switch ($action) {
 
         include('view/vehicles_list.php');
         break;
+    }
 }
 
 ?>
