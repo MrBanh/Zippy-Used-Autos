@@ -1,5 +1,7 @@
 # INF653 Back End Web Development I - Midterm Project Requirements
 
+Deployed to: https://tony-banh-zippy-used-autos.herokuapp.com/
+
 You will build a PHP Web Application for our client “Zippy Used Autos”.
 
 The design of your PHP Application should follow the MVC design pattern. There will be more than one controller and the design will be discussed further in class and on Blackboard.
@@ -53,8 +55,8 @@ The design of your PHP Application should follow the MVC design pattern. There w
 - [x] When complete, deploy Zippy’s web app to Heroku. You will need to export your dev database from myPhpAdmin and import it into Heroku’s JawsDB version of MySQL. Utilize the directions for Heroku deployment in Blackboard to accomplish this.
 
 ## Submission
-- [ ] A link to your GitHub code repository (no code updates after the due date accepted on the Midterm)
-- [ ] A link to your deployed project on Heroku (for Zippy’s customers)
-- [ ] A link to Zippy’s “Back End Home Page” (for Zippy to admin his site)
-- [ ] A one page PDF document discussing what challenges you faced while building your project.
-- [ ] Share your project and the key parts of your discussion in the final project forum in Blackboard.
+- [x] A link to your GitHub code repository (no code updates after the due date accepted on the Midterm)
+- [x] A link to your deployed project on Heroku (for Zippy’s customers)
+- [x] A link to Zippy’s “Back End Home Page” (for Zippy to admin his site)
+- [x] A one page PDF document discussing what challenges you faced while building your project.
+- [x] Share your project and the key parts of your discussion in the final project forum in Blackboard.
