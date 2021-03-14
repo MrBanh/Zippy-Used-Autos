@@ -1,4 +1,4 @@
-<form action="." method="GET" class="filter_vehicles_list">
+<form action="." method="GET" class="vehicles_list_filtered">
     <input type="hidden" name="action" value="vehicles_list_filtered">
 
     <div class="form_group">

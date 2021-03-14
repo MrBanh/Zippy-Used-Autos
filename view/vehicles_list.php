@@ -19,9 +19,9 @@
                     $year = $vehicle['year'];
                     $model = $vehicle['model'];
                     $price = $vehicle['price'];
-                    $make_name = $vehicle['make_name'];
-                    $type_name = $vehicle['type_name'];
-                    $class_name = $vehicle['class_name'];
+                    $make_name = $vehicle['make_name'] ?? 'n/a';
+                    $type_name = $vehicle['type_name'] ?? 'n/a';
+                    $class_name = $vehicle['class_name'] ?? 'n/a';
                 ?>
                     <tr>
                         <td><?= $year ?></td>
