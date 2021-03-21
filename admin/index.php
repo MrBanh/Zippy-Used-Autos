@@ -19,8 +19,8 @@ if (!$action) {
 }
 
 // Controllers
-require_once('../controller/vehicles.php');
-require_once('../controller/makes.php');
-require_once('../controller/types.php');
-require_once('../controller/classes.php');
+require_once('./controller/vehicles.php');
+require_once('./controller/makes.php');
+require_once('./controller/types.php');
+require_once('./controller/classes.php');
 ?>
