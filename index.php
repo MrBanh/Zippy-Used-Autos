@@ -1,4 +1,9 @@
 <?php
+// Start session management with a persistent cookie
+$lifetime = 60 * 60 * 24 * 14; // 2 weeks in seconds
+session_set_cookie_params($lifetime, '/');
+session_start();
+
 require_once('model/database.php');
 require_once('util/util.php');
 
@@ -16,6 +21,12 @@ if (!$action) {
     if (!$action) {
         $action = 'vehicles_list';
     }
+}
+
+$firstname = filter_input(INPUT_GET, 'firstname', FILTER_SANITIZE_STRING);
+if ($firstname) {
+    // Set the session variable 'userid' to $firstname
+    $_SESSION['userid'] = $firstname;
 }
 
 switch ($action) {
@@ -69,6 +80,28 @@ switch ($action) {
         }
 
         include('view/vehicles_list.php');
+        break;
+    }
+    case 'register': {
+        include('view/register.php');
+        break;
+    }
+    case 'logout': {
+        $firstname = $_SESSION['userid'];
+        unset($_SESSION['userid']);
+        session_destroy();
+
+        // Delete session cookie
+        $session_name = session_name();
+        $expire = strtotime('-1 year');
+        $params = session_get_cookie_params();
+        $path = $params['path'];
+        $domain = $params['domain'];
+        $secure = $params['secure'];
+        $httponly = $params['httponly'];
+        setcookie($session_name, '', $expire, $path, $domain, $secure, $httponly);
+
+        include('view/logout.php');
         break;
     }
 }
