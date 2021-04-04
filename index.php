@@ -13,8 +13,6 @@ require_once('model/makes_table.php');
 require_once('model/types_table.php');
 require_once('model/classes_table.php');
 
-$isAdmin = false;
-
 $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
 if (!$action) {
     $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING);

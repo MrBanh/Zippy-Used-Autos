@@ -1,4 +1,4 @@
-<?php include('header.php'); ?>
+<?php include('view/header.php'); ?>
 
 <?php if(!$firstname) { ?>
     <form action="." method="GET" class="add_form">
@@ -18,4 +18,4 @@
     <p><a href="?action=vehicles_list">Click here</a> to view our vehicle list.</p>
 <?php } ?>
 
-<?php include('footer.php'); ?>
+<?php include('view/footer.php'); ?>

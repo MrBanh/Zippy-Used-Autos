@@ -2,7 +2,7 @@
 switch ($action) {
     case 'classes_list': {
         $classes_list = get_classes();
-        include('../view/classes_list.php');
+        include('view/classes_list.php');
         break;
     }
 
@@ -13,7 +13,7 @@ switch ($action) {
             header("Location: .?action=classes_list&added_class={$count}");
         } else {
             $error_message = 'Invalid vehicle class';
-            include('../view/error.php');
+            include('view/error.php');
         }
         break;
     }
@@ -25,7 +25,7 @@ switch ($action) {
             header("Location: .?action=classes_list&deleted_class={$count}");
         } else {
             $error_message = 'Invalid vehicle class';
-            include('../view/error.php');
+            include('view/error.php');
         }
         break;
     }

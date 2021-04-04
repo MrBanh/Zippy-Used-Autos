@@ -49,7 +49,7 @@ switch ($action) {
             $vehicles_list[$key]['class_name'] = get_class_name($vehicle['class_id']);
         }
 
-        include('../view/vehicles_list.php');
+        include('view/vehicles_list.php');
         break;
     }
 
@@ -57,7 +57,7 @@ switch ($action) {
         $makes_list = get_makes();
         $types_list = get_types();
         $classes_list = get_classes();
-        include('../view/add_vehicle_form.php');
+        include('view/add_vehicle_form.php');
         break;
     }
 
@@ -74,7 +74,7 @@ switch ($action) {
             header("Location: .?added_vehicle={$count}");
         } else {
             $error_message = 'Invalid vehicle data';
-            include('../view/error.php');
+            include('view/error.php');
         }
 
         break;
@@ -99,7 +99,7 @@ switch ($action) {
             header("Location: ./?deleted_vehicle={$count}");
         } else {
             $error_message = 'Invalid vehicle data';
-            include('../view/error.php');
+            include('view/error.php');
         }
         break;
     }
