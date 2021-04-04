@@ -18,8 +18,13 @@ function is_valid_admin_login($username, $password) {
     $statement->execute();
     $row = $statement->fetch();
     $statement->closeCursor();
-    $hash = $row['password'];
-    return (!empty($hash) ? password_verify($password, $hash) : false);
+
+    if (!empty($row['password'])) {
+        $hash = $row['password'];
+        return password_verify($password, $hash);
+    } else {
+        return false;
+    }
 }
 
 function username_exists($username) {

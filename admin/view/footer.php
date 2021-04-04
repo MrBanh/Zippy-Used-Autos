@@ -18,6 +18,10 @@
     <?php if ($action != 'classes_list') { ?>
         <p><a href="?action=classes_list">View/Edit Vehicle Classes</a></p>
     <?php } ?>
+
+    <?php if ($action != 'show_register') { ?>
+        <p><a href="?action=show_register">Register New Admin User</a></p>
+    <?php } ?>
  </div>
 </main>
 <footer class="border-top border-1 border-secondary">

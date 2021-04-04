@@ -7,7 +7,7 @@ switch ($action) {
             $_SESSION['is_valid_admin'] = true;
             header("Location: .?action=vehicles_list");
         } else {
-            $login_message = 'You mut login to view this page.';
+            $login_message = 'Incorrect Login / Login Required.';
             include('view/login.php');
         }
         break;
@@ -46,6 +46,7 @@ switch ($action) {
     case 'logout': {
         $_SESSION = array();        // Clear session data
         session_destroy();      // Clean up session id
+
         $login_message = 'You have been logged out.';
         include('view/login.php');
         break;

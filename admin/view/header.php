@@ -1,3 +1,8 @@
+<?php
+    // require_once('util/secure_conn.php');       // Require secure connection
+    require_once('util/valid_admin.php');       // Require valid admin user
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,5 +19,12 @@
     <title>Zippy Used Autos</title>
 </head>
 <body class="p-4">
-    <header class="mb-2 border-bottom border-1 border-secondary"><h1>Zippy Admin</h1></header>
+    <header class="mb-2 border-bottom border-1 border-secondary d-flex flex-column flex-md-row-reverse justify-content-md-between align-items-md-center">
+        <?php if(isset($_SESSION['is_valid_admin'])) { ?>
+            <p class="align-self-end"><a href="?action=logout" class="fw-bold">Sign Out</a></p>
+        <?php } else { ?>
+            <div></div>
+        <?php } ?>
+        <h1>Zippy Admin</h1>
+    </header>
    <main>

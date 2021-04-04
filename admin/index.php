@@ -1,4 +1,9 @@
 <?php
+// Start session management with a persistent cookie
+$lifetime = 60 * 60 * 24 * 14; // 2 weeks in seconds
+session_set_cookie_params($lifetime, '/');
+session_start();
+
 require_once('../model/database.php');
 require_once('../util/util.php');
 
