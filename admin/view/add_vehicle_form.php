@@ -1,4 +1,4 @@
-<?php include('admin_header.php'); ?>
+<?php include('view/header.php'); ?>
 <section class="add_vehicle_form">
     <h2 class="text-primary">Add Vehicle</h2>
 
@@ -63,4 +63,4 @@
         </div>
     </form>
 </section>
-<?php include('admin_footer.php'); ?>
+<?php include('view/footer.php'); ?>

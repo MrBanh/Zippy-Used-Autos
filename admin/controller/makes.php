@@ -2,7 +2,7 @@
 switch ($action) {
     case 'makes_list': {
         $makes_list = get_makes();
-        include('../view/makes_list.php');
+        include('view/makes_list.php');
         break;
     }
 
@@ -13,7 +13,7 @@ switch ($action) {
             header("Location: .?action=makes_list&added_make={$count}");
         } else {
             $error_message = 'Invalid vehicle make';
-            include('../view/error.php');
+            include('view/error.php');
         }
         break;
     }
@@ -25,7 +25,7 @@ switch ($action) {
             header("Location: .?action=makes_list&deleted_make={$count}");
         } else {
             $error_message = 'Invalid vehicle make';
-            include('../view/error.php');
+            include('view/error.php');
         }
         break;
     }

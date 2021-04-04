@@ -2,7 +2,7 @@
 switch ($action) {
     case 'types_list': {
         $types_list = get_types();
-        include('../view/types_list.php');
+        include('view/types_list.php');
         break;
     }
 
@@ -13,7 +13,7 @@ switch ($action) {
             header("Location: .?action=types_list&added_type={$count}");
         } else {
             $error_message = 'Invalid vehicle type';
-            include('../view/error.php');
+            include('view/error.php');
         }
         break;
     }
@@ -25,7 +25,7 @@ switch ($action) {
             header("Location: .?action=types_list&deleted_type={$count}");
         } else {
             $error_message = 'Invalid vehicle type';
-            include('../view/error.php');
+            include('view/error.php');
         }
         break;
     }

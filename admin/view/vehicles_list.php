@@ -12,6 +12,7 @@
                     <th>Type</th>
                     <th>Class</th>
                     <th>Price</th>
+                    <th></th>
                 </tr>
 
                 <?php foreach($vehicles_list as $vehicle)  {
@@ -29,6 +30,19 @@
                         <td><?= $type_name ?></td>
                         <td><?= $class_name ?></td>
                         <td><?= get_currency($price); ?></td>
+
+                        <td>
+                            <form action="." METHOD="POST" class="delete_form text-end">
+                                <input type="hidden" name="action" value="delete_vehicle">
+                                <input type="hidden" name="year" value="<?= $year ?>">
+                                <input type="hidden" name="model" value="<?= $model ?>">
+                                <input type="hidden" name="price" value="<?= $price ?>">
+                                <input type="hidden" name="make_id" value="<?= $vehicle['make_id'] ?>">
+                                <input type="hidden" name="type_id" value="<?= $vehicle['type_id'] ?>">
+                                <input type="hidden" name="class_id" value="<?= $vehicle['class_id'] ?>">
+                                <button class="btn btn-sm btn-danger ">Remove</button>
+                            </form>
+                        </td>
                     </tr>
                 <?php } ?>
             </table>
