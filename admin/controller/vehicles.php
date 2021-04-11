@@ -41,12 +41,12 @@ switch ($action) {
 
         $makes_list = MakesTable::get_makes();
         $types_list = TypesTable::get_types();
-        $classes_list = get_classes();
+        $classes_list = ClassesTable::get_classes();
 
         foreach($vehicles_list as $key => $vehicle) {
             $vehicles_list[$key]['make_name'] = MakesTable::get_make_name($vehicle['make_id']);
             $vehicles_list[$key]['type_name'] = TypesTable::get_type_name($vehicle['type_id']);
-            $vehicles_list[$key]['class_name'] = get_class_name($vehicle['class_id']);
+            $vehicles_list[$key]['class_name'] = ClassesTable::get_class_name($vehicle['class_id']);
         }
 
         include('view/vehicles_list.php');
@@ -56,7 +56,7 @@ switch ($action) {
     case 'add_vehicle_form': {
         $makes_list = MakesTable::get_makes();
         $types_list = TypesTable::get_types();
-        $classes_list = get_classes();
+        $classes_list = ClassesTable::get_classes();
         include('view/add_vehicle_form.php');
         break;
     }
