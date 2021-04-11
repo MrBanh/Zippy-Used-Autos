@@ -3,7 +3,7 @@ switch ($action) {
     case 'login': {
         $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
         $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
-        if (is_valid_admin_login($username, $password)) {
+        if (AdminDB::is_valid_admin_login($username, $password)) {
             $_SESSION['is_valid_admin'] = true;
             header("Location: .?action=vehicles_list");
         } else {
@@ -30,7 +30,7 @@ switch ($action) {
             if (count($errors)) {
                 include('view/register.php');
             } else {
-                add_admin($username, $password);
+                AdminDB::add_admin($username, $password);
                 $_SESSION['is_valid_admin'] = true;
                 header("Location: .?action=vehicles_list");
             }
