@@ -34,9 +34,9 @@ switch ($action) {
             //     $filters['class_id'] = $class_id;
             // }
 
-            $vehicles_list = get_vehicles_filtered($sort_by, $filters);
+            $vehicles_list = VehiclesTable::get_vehicles_filtered($sort_by, $filters);
         } else {
-            $vehicles_list = get_vehicles();
+            $vehicles_list = VehiclesTable::get_vehicles();
         }
 
         $makes_list = get_makes();
@@ -70,7 +70,7 @@ switch ($action) {
         $class_id = filter_input(INPUT_POST, 'class_id', FILTER_VALIDATE_INT);
 
         if ($year && $model && $price && $make_id && $type_id && $class_id) {
-            $count = add_vehicle($year, $model, $price, $make_id, $type_id, $class_id);
+            $count = VehiclesTable::add_vehicle($year, $model, $price, $make_id, $type_id, $class_id);
             header("Location: .?added_vehicle={$count}");
         } else {
             $error_message = 'Invalid vehicle data';
@@ -95,7 +95,7 @@ switch ($action) {
         );
 
         if ($year && $model && $price) {
-            $count = delete_vehicle($year, $model, $price, $ids);
+            $count = VehiclesTable::delete_vehicle($year, $model, $price, $ids);
             header("Location: ./?deleted_vehicle={$count}");
         } else {
             $error_message = 'Invalid vehicle data';

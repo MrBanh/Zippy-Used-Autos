@@ -62,9 +62,9 @@ switch ($action) {
             //     $filters['class_id'] = $class_id;
             // }
 
-            $vehicles_list = get_vehicles_filtered($sort_by, $filters);
+            $vehicles_list = VehiclesTable::get_vehicles_filtered($sort_by, $filters);
         } else {
-            $vehicles_list = get_vehicles();
+            $vehicles_list = VehiclesTable::get_vehicles();
         }
 
         $makes_list = get_makes();
