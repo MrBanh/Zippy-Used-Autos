@@ -25,7 +25,12 @@ switch ($action) {
 
         if ($username && $password && $confirm_password) {
             include('util/valid_register.php');
+
             $errors = ValidRegister::valid_registration($username, $password, $confirm_password);
+
+            if (AdminDB::username_exists($username)) {
+                array_push($errors, "The username you entered is already taken.");
+            }
 
             if (count($errors)) {
                 include('view/register.php');

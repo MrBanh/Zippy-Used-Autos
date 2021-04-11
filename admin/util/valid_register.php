@@ -24,9 +24,6 @@
             if (!self::valid_username($username)) {
                 array_push($errors, "Username must be six characters or longer.");
             }
-            if (AdminDB::username_exists($username)) {
-                array_push($errors, "The username you entered is already taken.");
-            }
 
             // password validation
             if (!self::valid_password($password)) {
