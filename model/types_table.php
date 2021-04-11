@@ -4,7 +4,7 @@
      * @return {Object[]} - An array of all type records in types table
      */
     function get_types() {
-        global $db;
+        $db = Database::getDB();
         $query = "SELECT * FROM types ORDER BY type_id";
         $statement = $db->prepare($query);
         $statement->execute();
@@ -18,7 +18,7 @@
      * @return { string } - the type name that corresponds to type id
      */
     function get_type_name($type_id) {
-        global $db;
+        $db = Database::getDB();
         $query = "SELECT * FROM types
                     WHERE type_id = :type_id";
         $statement = $db->prepare($query);
@@ -35,7 +35,7 @@
      * @return { int } $count - Row affected in database
      */
     function add_type($type_name) {
-        global $db;
+        $db = Database::getDB();
         $count = 0;
         $query = "INSERT INTO types (type_name)
                     VALUES (:type_name)";
@@ -59,7 +59,7 @@
      * @return { int } $count - Row affected in database
      */
     function delete_type($type_id) {
-        global $db;
+        $db = Database::getDB();
         $count = 0;
         $query = "DELETE FROM types
                     WHERE type_id = :type_id";

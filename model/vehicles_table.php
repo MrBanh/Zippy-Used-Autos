@@ -3,7 +3,7 @@
      * @return {Object[]} - An array of all vehicle records in vehicles table
      */
     function get_vehicles() {
-        global $db;
+        $db = Database::getDB();
         $query = "SELECT * FROM vehicles ORDER BY price DESC";
         $statement = $db->prepare($query);
         $statement->execute();
@@ -18,7 +18,7 @@
      * @return {Object[]} - An array of vehicle records filtered and sorted
      */
     function get_vehicles_filtered($sort_by, $filters) {
-        global $db;
+        $db = Database::getDB();
         $query = "SELECT * FROM vehicles";
 
         // Get the array of query expressions for WHERE clause, if any
@@ -52,7 +52,7 @@
      * @return {Integer} $count - Count of records affected in database
      */
     function add_vehicle($year, $model, $price, $make_id, $type_id, $class_id) {
-        global $db;
+        $db = Database::getDB();
         $count = 0;
 
         $query = "INSERT INTO vehicles (year, model, price, make_id, type_id, class_id)
@@ -83,7 +83,7 @@
      * @return {Integer} $count - Count of rows affected in database
      */
     function delete_vehicle($year, $model, $price, $ids) {
-        global $db;
+        $db = Database::getDB();
         $count = 0;
         $query = "DELETE FROM vehicles WHERE year = :year AND model = :model AND price = :price";
 

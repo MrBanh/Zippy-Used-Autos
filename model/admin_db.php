@@ -1,6 +1,6 @@
 <?php
 function add_admin($username, $password) {
-    global $db;
+    $db = Database::getDB();
     $hash = password_hash($password, PASSWORD_DEFAULT);
     $query = 'INSERT INTO administrators (username, password) VALUES (:username, :password)';
     $statement = $db->prepare($query);
@@ -11,7 +11,7 @@ function add_admin($username, $password) {
 }
 
 function is_valid_admin_login($username, $password) {
-    global $db;
+    $db = Database::getDB();
     $query = 'SELECT password FROM administrators WHERE username = :username';
     $statement = $db->prepare($query);
     $statement->bindValue(':username', $username);
@@ -28,7 +28,7 @@ function is_valid_admin_login($username, $password) {
 }
 
 function username_exists($username) {
-    global $db;
+    $db = Database::getDB();
     $query = 'SELECT COUNT(*) FROM administrators WHERE username = :username';
     $statement = $db->prepare($query);
     $statement->bindValue(':username', $username);

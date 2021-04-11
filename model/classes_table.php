@@ -3,7 +3,7 @@
      * @return {Object[]} - An array of all class records in classes table
      */
     function get_classes() {
-        global $db;
+        $db = Database::getDB();
         $query = "SELECT * FROM classes ORDER BY class_id";
         $statement = $db->prepare($query);
         $statement->execute();
@@ -17,7 +17,7 @@
      * @return { string } - the class name that corresponds to class id
      */
     function get_class_name($class_id) {
-        global $db;
+        $db = Database::getDB();
         $query = "SELECT * FROM classes
                     WHERE class_id = :class_id";
         $statement = $db->prepare($query);
@@ -34,7 +34,7 @@
      * @return { int } $count - Row affected in database
      */
     function add_class($class_name) {
-        global $db;
+        $db = Database::getDB();
         $count = 0;
         $query = "INSERT INTO classes (class_name)
                     VALUES (:class_name)";
@@ -58,7 +58,7 @@
      * @return { int } $count - Row affected in database
      */
     function delete_class($class_id) {
-        global $db;
+        $db = Database::getDB();
         $count = 0;
         $query = "DELETE FROM classes
                     WHERE class_id = :class_id";

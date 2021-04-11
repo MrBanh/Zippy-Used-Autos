@@ -4,7 +4,7 @@
      * @return { Object[] } - An array of all make records in makes table
      */
     function get_makes() {
-        global $db;
+        $db = Database::getDB();
         $query = "SELECT * FROM makes ORDER BY make_id";
         $statement = $db->prepare($query);
         $statement->execute();
@@ -19,7 +19,7 @@
      * @return { string } - the make name that corresponds to make id
      */
     function get_make_name($make_id) {
-        global $db;
+        $db = Database::getDB();
         $query = "SELECT * FROM makes
                     WHERE make_id = :make_id";
         $statement = $db->prepare($query);
@@ -36,7 +36,7 @@
      * @return { int } $count - Row affected in database
      */
     function add_make($make_name) {
-        global $db;
+        $db = Database::getDB();
         $count = 0;
         $query = "INSERT INTO makes (make_name)
                     VALUES (:make_name)";
@@ -60,7 +60,7 @@
      * @return { int } $count - Row affected in database
      */
     function delete_make($make_id) {
-        global $db;
+        $db = Database::getDB();
         $count = 0;
         $query = "DELETE FROM makes
                     WHERE make_id = :make_id";
