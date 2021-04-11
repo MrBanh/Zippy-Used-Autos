@@ -25,7 +25,7 @@ switch ($action) {
 
         if ($username && $password && $confirm_password) {
             include('util/valid_register.php');
-            $errors = valid_registration($username, $password, $confirm_password);
+            $errors = ValidRegister::valid_registration($username, $password, $confirm_password);
 
             if (count($errors)) {
                 include('view/register.php');
