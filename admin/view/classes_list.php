@@ -11,11 +11,11 @@
 
                 <?php foreach($classes_list as $class)  { ?>
                     <tr>
-                        <td><?= $class['class_name'] ?></td>
+                        <td><?= $class->getName() ?></td>
                         <td>
                             <form action="." METHOD="POST" class="delete_form text-end">
                                 <input type="hidden" name="action" value="delete_class">
-                                <input type="hidden" name="class_id" value="<?= $class['class_id'] ?>">
+                                <input type="hidden" name="class_id" value="<?= $class->getID() ?>">
                                 <button class="btn btn-sm btn-danger ">Remove</button>
                             </form>
                         </td>

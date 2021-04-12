@@ -1,32 +1,43 @@
 <?php
     class ClassesTable {
         /**
-         * @return {Object[]} - An array of all class records in classes table
+         * Returns a collection of all classes in the classes table
+         * @return { VehicleClass[] }
          */
         public static function get_classes() {
             $db = Database::getDB();
             $query = "SELECT * FROM classes ORDER BY class_id";
             $statement = $db->prepare($query);
             $statement->execute();
-            $classes = $statement->fetchAll();
+            $rows = $statement->fetchAll();
             $statement->closeCursor();
+
+            $classes = [];
+            foreach ($rows as $row) {
+                $class = new VehicleClass($row['class_id'], $row['class_name']);
+                $classes[] = $class;
+            }
+
             return $classes;
         }
 
         /**
-         *  @param $class_id - primary key for classes table
-         * @return { string } - the class name that corresponds to class id
+         * Returns the VehicleClass object instantiated with results from SQL query
+         *  @param { int } $class_id - primary key in table to search for class
+         * @return { VehicleClass }
          */
-        public static function get_class_name($class_id) {
+        public static function get_class($class_id) {
             $db = Database::getDB();
             $query = "SELECT * FROM classes
                         WHERE class_id = :class_id";
             $statement = $db->prepare($query);
             $statement->bindValue(':class_id', $class_id);
             $statement->execute();
-            $class = $statement->fetch();
+            $row = $statement->fetch();
             $statement->closeCursor();
-            return $class['class_name'] ?? null;
+
+            $class = new VehicleClass($row['class_id'] ?? null, $row['class_name'] ?? null);
+            return $class;
         }
 
         /**

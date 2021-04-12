@@ -33,9 +33,9 @@
                 <option value="" <?= (!$class_id ? 'selected' : '') ?>>View All Classes</option>
                 <?php foreach ($classes_list as $class) { ?>
                     <option
-                    value="<?= $class['class_id'] ?>"
-                    <?= (isset($class_id) && $class_id == $class['class_id'] ? 'selected' : '') ?>
-                    ><?= $class['class_name'] ?></option>
+                    value="<?= $class->getID() ?>"
+                    <?= (isset($class_id) && $class_id == $class->getID() ? 'selected' : '') ?>
+                    ><?= $class->getName() ?></option>
                 <?php } ?>
             </select>
         </div>

@@ -32,7 +32,7 @@
                 <label for="class_id" class="form_label px-0">Class:</label>
                 <select name="class_id" id="class_id">
                     <?php foreach ($classes_list as $class) { ?>
-                        <option value="<?= $class['class_id'] ?>"><?= $class['class_name'] ?></option>
+                        <option value="<?= $class->getID() ?>"><?= $class->getName() ?></option>
                     <?php } ?>
                 </select>
             </div>
