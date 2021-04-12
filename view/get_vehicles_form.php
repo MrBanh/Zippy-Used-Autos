@@ -7,9 +7,9 @@
                 <option value="" <?= (!$make_id ? 'selected' : '') ?>>View All Makes</option>
                 <?php foreach ($makes_list as $make) { ?>
                     <option
-                    value="<?= $make['make_id'] ?>"
-                    <?= (isset($make_id) && $make_id == $make['make_id'] ? 'selected' : '') ?>
-                    ><?= $make['make_name'] ?></option>
+                    value="<?= $make->getID() ?>"
+                    <?= (isset($make_id) && $make_id == $make->getID() ? 'selected' : '') ?>
+                    ><?= $make->getName() ?></option>
                 <?php } ?>
             </select>
         </div>
@@ -20,9 +20,9 @@
                 <option value="" <?= (!$type_id ? 'selected' : '') ?>>View All Types</option>
                 <?php foreach ($types_list as $type) { ?>
                     <option
-                    value="<?= $type['type_id'] ?>"
-                    <?= (isset($type_id) && $type_id == $type['type_id'] ? 'selected' : '') ?>
-                    ><?= $type['type_name'] ?></option>
+                    value="<?= $type->getID() ?>"
+                    <?= (isset($type_id) && $type_id == $type->getID() ? 'selected' : '') ?>
+                    ><?= $type->getName() ?></option>
                 <?php } ?>
             </select>
         </div>
@@ -33,9 +33,9 @@
                 <option value="" <?= (!$class_id ? 'selected' : '') ?>>View All Classes</option>
                 <?php foreach ($classes_list as $class) { ?>
                     <option
-                    value="<?= $class['class_id'] ?>"
-                    <?= (isset($class_id) && $class_id == $class['class_id'] ? 'selected' : '') ?>
-                    ><?= $class['class_name'] ?></option>
+                    value="<?= $class->getID() ?>"
+                    <?= (isset($class_id) && $class_id == $class->getID() ? 'selected' : '') ?>
+                    ><?= $class->getName() ?></option>
                 <?php } ?>
             </select>
         </div>

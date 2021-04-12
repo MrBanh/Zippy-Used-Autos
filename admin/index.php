@@ -7,7 +7,11 @@ session_start();
 require_once('../model/database.php');
 require_once('../util/util.php');
 
-// Model - table php files
+// Model - class/table php files
+require_once('../model/make.php');
+require_once('../model/type.php');
+require_once('../model/class.php');
+require_once('../model/vehicle.php');
 require_once('../model/vehicles_table.php');
 require_once('../model/makes_table.php');
 require_once('../model/types_table.php');

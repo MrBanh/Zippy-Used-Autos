@@ -12,7 +12,7 @@
                 <label for="make_id" class="form_label px-0">Make:</label>
                 <select name="make_id" id="make_id">
                     <?php foreach ($makes_list as $make) { ?>
-                        <option value="<?= $make['make_id'] ?>"><?= $make['make_name'] ?></option>
+                        <option value="<?= $make->getID() ?>"><?= $make->getName() ?></option>
                     <?php } ?>
                 </select>
             </div>
@@ -22,7 +22,7 @@
                 <label for="type_id" class="form_label px-0">Type:</label>
                 <select name="type_id" id="type_id">
                     <?php foreach ($types_list as $type) { ?>
-                        <option value="<?= $type['type_id'] ?>"><?= $type['type_name'] ?></option>
+                        <option value="<?= $type->getID() ?>"><?= $type->getName() ?></option>
                     <?php } ?>
                 </select>
             </div>
@@ -32,7 +32,7 @@
                 <label for="class_id" class="form_label px-0">Class:</label>
                 <select name="class_id" id="class_id">
                     <?php foreach ($classes_list as $class) { ?>
-                        <option value="<?= $class['class_id'] ?>"><?= $class['class_name'] ?></option>
+                        <option value="<?= $class->getID() ?>"><?= $class->getName() ?></option>
                     <?php } ?>
                 </select>
             </div>

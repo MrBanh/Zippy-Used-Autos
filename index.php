@@ -7,7 +7,11 @@ session_start();
 require_once('model/database.php');
 require_once('util/util.php');
 
-// Model - table php files
+// Model - class/table php files
+require_once('model/make.php');
+require_once('model/type.php');
+require_once('model/class.php');
+require_once('model/vehicle.php');
 require_once('model/vehicles_table.php');
 require_once('model/makes_table.php');
 require_once('model/types_table.php');
@@ -62,20 +66,14 @@ switch ($action) {
             //     $filters['class_id'] = $class_id;
             // }
 
-            $vehicles_list = get_vehicles_filtered($sort_by, $filters);
+            $vehicles_list = VehiclesTable::get_vehicles_filtered($sort_by, $filters);
         } else {
-            $vehicles_list = get_vehicles();
+            $vehicles_list = VehiclesTable::get_vehicles();
         }
 
-        $makes_list = get_makes();
-        $types_list = get_types();
-        $classes_list = get_classes();
-
-        foreach($vehicles_list as $key => $vehicle) {
-            $vehicles_list[$key]['make_name'] = get_make_name($vehicle['make_id']);
-            $vehicles_list[$key]['type_name'] = get_type_name($vehicle['type_id']);
-            $vehicles_list[$key]['class_name'] = get_class_name($vehicle['class_id']);
-        }
+        $makes_list = MakesTable::get_makes();
+        $types_list = TypesTable::get_types();
+        $classes_list = ClassesTable::get_classes();
 
         include('view/vehicles_list.php');
         break;
