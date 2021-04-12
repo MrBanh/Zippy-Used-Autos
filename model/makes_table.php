@@ -2,7 +2,7 @@
     class MakesTable {
         /**
          * Returns a collection of all makes in the makes table
-         * @return { Object[] } - An array of all make records in makes table
+         * @return { VehicleMake[] }
          */
         public static function get_makes() {
             $db = Database::getDB();
@@ -22,9 +22,9 @@
         }
 
         /**
-         * Gets the vehicle make based on make id
+         * Returns the Vehicle Make object instantiated with results from SQL query
          *  @param { int } $make_id - primary key in table to search for make
-         * @return { string } - Make object containing the SQL result
+         * @return { VehicleMake }
          */
         public static function get_make($make_id) {
             $db = Database::getDB();

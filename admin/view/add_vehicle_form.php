@@ -22,7 +22,7 @@
                 <label for="type_id" class="form_label px-0">Type:</label>
                 <select name="type_id" id="type_id">
                     <?php foreach ($types_list as $type) { ?>
-                        <option value="<?= $type['type_id'] ?>"><?= $type['type_name'] ?></option>
+                        <option value="<?= $type->getID() ?>"><?= $type->getName() ?></option>
                     <?php } ?>
                 </select>
             </div>

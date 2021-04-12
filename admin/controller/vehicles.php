@@ -45,7 +45,7 @@ switch ($action) {
 
         foreach($vehicles_list as $key => $vehicle) {
             $vehicles_list[$key]['make_name'] = MakesTable::get_make($vehicle['make_id'])->getName();
-            $vehicles_list[$key]['type_name'] = TypesTable::get_type_name($vehicle['type_id']);
+            $vehicles_list[$key]['type_name'] = TypesTable::get_type($vehicle['type_id'])->getName();
             $vehicles_list[$key]['class_name'] = ClassesTable::get_class_name($vehicle['class_id']);
         }
 

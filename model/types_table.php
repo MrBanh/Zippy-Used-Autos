@@ -1,32 +1,43 @@
 <?php
     class TypesTable {
         /**
-         * @return {Object[]} - An array of all type records in types table
+         * Returns a collection of all types in the types table
+         * @return { VehicleType[] }
          */
         public static function get_types() {
             $db = Database::getDB();
             $query = "SELECT * FROM types ORDER BY type_id";
             $statement = $db->prepare($query);
             $statement->execute();
-            $types = $statement->fetchAll();
+            $rows = $statement->fetchAll();
             $statement->closeCursor();
+
+            $types = [];
+            foreach($rows as $row) {
+                $type = new VehicleType($row['type_id'], $row['type_name']);
+                $types[] = $type;
+            }
+
             return $types;
         }
 
         /**
-         *  @param $type_id - primary key for types table
-         * @return { string } - the type name that corresponds to type id
+         * Returns the Vehicle Type object instantiated with results from SQL query
+         *  @param { int } $type_id - primary key in table to search for type
+         * @return { VehicleType }
          */
-        public static function get_type_name($type_id) {
+        public static function get_type($type_id) {
             $db = Database::getDB();
             $query = "SELECT * FROM types
                         WHERE type_id = :type_id";
             $statement = $db->prepare($query);
             $statement->bindValue(':type_id', $type_id);
             $statement->execute();
-            $type = $statement->fetch();
+            $row = $statement->fetch();
             $statement->closeCursor();
-            return $type['type_name'] ?? null;
+
+            $type = new VehicleType($row['type_id'] ?? null, $row['type_name'] ?? null);
+            return $type;
         }
 
         /**

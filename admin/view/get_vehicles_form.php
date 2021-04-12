@@ -20,9 +20,9 @@
                 <option value="" <?= (!$type_id ? 'selected' : '') ?>>View All Types</option>
                 <?php foreach ($types_list as $type) { ?>
                     <option
-                    value="<?= $type['type_id'] ?>"
-                    <?= (isset($type_id) && $type_id == $type['type_id'] ? 'selected' : '') ?>
-                    ><?= $type['type_name'] ?></option>
+                    value="<?= $type->getID() ?>"
+                    <?= (isset($type_id) && $type_id == $type->getID() ? 'selected' : '') ?>
+                    ><?= $type->getName() ?></option>
                 <?php } ?>
             </select>
         </div>
