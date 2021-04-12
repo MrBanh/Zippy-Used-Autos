@@ -7,7 +7,11 @@ session_start();
 require_once('model/database.php');
 require_once('util/util.php');
 
-// Model - table php files
+// Model - class/table php files
+require_once('../model/make.php');
+require_once('../model/type.php');
+require_once('../model/class.php');
+require_once('../model/vehicle.php');
 require_once('model/vehicles_table.php');
 require_once('model/makes_table.php');
 require_once('model/types_table.php');
@@ -72,7 +76,7 @@ switch ($action) {
         $classes_list = ClassesTable::get_classes();
 
         foreach($vehicles_list as $key => $vehicle) {
-            $vehicles_list[$key]['make_name'] = MakesTable::get_make_name($vehicle['make_id']);
+            $vehicles_list[$key]['make_name'] = MakesTable::get_make($vehicle['make_id'])->getName();
             $vehicles_list[$key]['type_name'] = TypesTable::get_type_name($vehicle['type_id']);
             $vehicles_list[$key]['class_name'] = ClassesTable::get_class_name($vehicle['class_id']);
         }

@@ -9,26 +9,35 @@
             $query = "SELECT * FROM makes ORDER BY make_id";
             $statement = $db->prepare($query);
             $statement->execute();
-            $makes = $statement->fetchAll();
+            $rows = $statement->fetchAll();
             $statement->closeCursor();
+
+            $makes = [];
+            foreach ($rows as $row) {
+                $make = new VehicleMake($row['make_id'], $row['make_name']);
+                $makes[] = $make;
+            }
+
             return $makes;
         }
 
         /**
-         * Gets the vehicle name based on id
-         *  @param { int } $make_id - primary key for makes table
-         * @return { string } - the make name that corresponds to make id
+         * Gets the vehicle make based on make id
+         *  @param { int } $make_id - primary key in table to search for make
+         * @return { string } - Make object containing the SQL result
          */
-        public static function get_make_name($make_id) {
+        public static function get_make($make_id) {
             $db = Database::getDB();
             $query = "SELECT * FROM makes
                         WHERE make_id = :make_id";
             $statement = $db->prepare($query);
             $statement->bindValue(':make_id', $make_id);
             $statement->execute();
-            $make = $statement->fetch();
+            $row = $statement->fetch();
             $statement->closeCursor();
-            return $make['make_name'] ?? null;
+
+            $make = new VehicleMake($row['make_id'] ?? null, $row['make_name'] ?? null);
+            return $make;
         }
 
         /**

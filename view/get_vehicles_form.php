@@ -7,9 +7,9 @@
                 <option value="" <?= (!$make_id ? 'selected' : '') ?>>View All Makes</option>
                 <?php foreach ($makes_list as $make) { ?>
                     <option
-                    value="<?= $make['make_id'] ?>"
-                    <?= (isset($make_id) && $make_id == $make['make_id'] ? 'selected' : '') ?>
-                    ><?= $make['make_name'] ?></option>
+                    value="<?= $make->getID() ?>"
+                    <?= (isset($make_id) && $make_id == $make->getID() ? 'selected' : '') ?>
+                    ><?= $make->getName() ?></option>
                 <?php } ?>
             </select>
         </div>

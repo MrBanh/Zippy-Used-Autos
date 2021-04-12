@@ -11,11 +11,11 @@
 
                 <?php foreach($makes_list as $make)  { ?>
                     <tr>
-                        <td><?= $make['make_name'] ?></td>
+                        <td><?= $make->getName() ?></td>
                         <td>
                             <form action="." METHOD="POST" class="delete_form text-end">
                                 <input type="hidden" name="action" value="delete_make">
-                                <input type="hidden" name="make_id" value="<?= $make['make_id'] ?>">
+                                <input type="hidden" name="make_id" value="<?= $make->getID() ?>">
                                 <button class="btn btn-sm btn-danger ">Remove</button>
                             </form>
                         </td>

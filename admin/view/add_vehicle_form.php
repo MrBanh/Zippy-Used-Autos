@@ -12,7 +12,7 @@
                 <label for="make_id" class="form_label px-0">Make:</label>
                 <select name="make_id" id="make_id">
                     <?php foreach ($makes_list as $make) { ?>
-                        <option value="<?= $make['make_id'] ?>"><?= $make['make_name'] ?></option>
+                        <option value="<?= $make->getID() ?>"><?= $make->getName() ?></option>
                     <?php } ?>
                 </select>
             </div>
