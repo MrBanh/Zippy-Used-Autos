@@ -16,12 +16,13 @@
                 </tr>
 
                 <?php foreach($vehicles_list as $vehicle)  {
-                    $year = $vehicle['year'];
-                    $model = $vehicle['model'];
-                    $price = $vehicle['price'];
-                    $make_name = $vehicle['make_name'] ?? 'n/a';
-                    $type_name = $vehicle['type_name'] ?? 'n/a';
-                    $class_name = $vehicle['class_name'] ?? 'n/a';
+                    $year = $vehicle->getYear();
+                    $model = $vehicle->getModel();
+                    $price = $vehicle->getPrice();
+                    $formattedPrice = $vehicle->getFormattedPrice();
+                    $make_name = $vehicle->getMake()->getName() ?? 'n/a';
+                    $type_name = $vehicle->getType()->getName() ?? 'n/a';
+                    $class_name = $vehicle->getClass()->getName() ?? 'n/a';
                 ?>
                     <tr>
                         <td><?= $year ?></td>
@@ -29,7 +30,7 @@
                         <td><?= $model ?></td>
                         <td><?= $type_name ?></td>
                         <td><?= $class_name ?></td>
-                        <td><?= get_currency($price); ?></td>
+                        <td><?= $formattedPrice ?></td>
 
                         <td>
                             <form action="." METHOD="POST" class="delete_form text-end">
@@ -37,9 +38,9 @@
                                 <input type="hidden" name="year" value="<?= $year ?>">
                                 <input type="hidden" name="model" value="<?= $model ?>">
                                 <input type="hidden" name="price" value="<?= $price ?>">
-                                <input type="hidden" name="make_id" value="<?= $vehicle['make_id'] ?>">
-                                <input type="hidden" name="type_id" value="<?= $vehicle['type_id'] ?>">
-                                <input type="hidden" name="class_id" value="<?= $vehicle['class_id'] ?>">
+                                <input type="hidden" name="make_id" value="<?= $vehicle->getMake()->getID() ?>">
+                                <input type="hidden" name="type_id" value="<?= $vehicle->getType()->getID() ?>">
+                                <input type="hidden" name="class_id" value="<?= $vehicle->getClass()->getID() ?>">
                                 <button class="btn btn-sm btn-danger ">Remove</button>
                             </form>
                         </td>

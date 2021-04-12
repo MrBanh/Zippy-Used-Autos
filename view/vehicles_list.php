@@ -15,12 +15,12 @@
                 </tr>
 
                 <?php foreach($vehicles_list as $vehicle)  {
-                    $year = $vehicle['year'];
-                    $model = $vehicle['model'];
-                    $price = $vehicle['price'];
-                    $make_name = $vehicle['make_name'] ?? 'n/a';
-                    $type_name = $vehicle['type_name'] ?? 'n/a';
-                    $class_name = $vehicle['class_name'] ?? 'n/a';
+                    $year = $vehicle->getYear();
+                    $model = $vehicle->getModel();
+                    $formattedPrice = $vehicle->getFormattedPrice();
+                    $make_name = $vehicle->getMake()->getName() ?? 'n/a';
+                    $type_name = $vehicle->getType()->getName() ?? 'n/a';
+                    $class_name = $vehicle->getClass()->getName() ?? 'n/a';
                 ?>
                     <tr>
                         <td><?= $year ?></td>
@@ -28,7 +28,7 @@
                         <td><?= $model ?></td>
                         <td><?= $type_name ?></td>
                         <td><?= $class_name ?></td>
-                        <td><?= get_currency($price); ?></td>
+                        <td><?= $formattedPrice ?></td>
                     </tr>
                 <?php } ?>
             </table>

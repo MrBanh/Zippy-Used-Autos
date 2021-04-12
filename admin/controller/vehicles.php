@@ -43,12 +43,6 @@ switch ($action) {
         $types_list = TypesTable::get_types();
         $classes_list = ClassesTable::get_classes();
 
-        foreach($vehicles_list as $key => $vehicle) {
-            $vehicles_list[$key]['make_name'] = MakesTable::get_make($vehicle['make_id'])->getName();
-            $vehicles_list[$key]['type_name'] = TypesTable::get_type($vehicle['type_id'])->getName();
-            $vehicles_list[$key]['class_name'] = ClassesTable::get_class($vehicle['class_id'])->getName();
-        }
-
         include('view/vehicles_list.php');
         break;
     }

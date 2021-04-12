@@ -1,22 +1,33 @@
 <?php
     class VehiclesTable {
         /**
-         * @return {Object[]} - An array of all vehicle records in vehicles table
+         * Returns a collection of all vehicles in the vehicles table
+         * @return { Vehicle[] }
          */
         public static function get_vehicles() {
             $db = Database::getDB();
             $query = "SELECT * FROM vehicles ORDER BY price DESC";
             $statement = $db->prepare($query);
             $statement->execute();
-            $vehicles = $statement->fetchAll();
+            $rows = $statement->fetchAll();
             $statement->closeCursor();
+
+            $vehicles = [];
+            foreach ($rows as $row) {
+                $make = MakesTable::get_make($row['make_id']);
+                $type = TypesTable::get_type($row['type_id']);
+                $class = ClassesTable::get_class($row['class_id']);
+                $vehicle = new Vehicle($make, $type, $class, $row['year'], $row['model'], $row['price']);
+                $vehicles[] = $vehicle;
+            }
+
             return $vehicles;
         }
 
         /**
          * @param {string} $sort_by - ORDER BY clause for SQL query
          * @param {string[]} $filters - Array of key, value pairs for filters selected for SQL WHERE clause
-         * @return {Object[]} - An array of vehicle records filtered and sorted
+         * @return { Vehicle[] } - An array of vehicle records filtered and sorted
          */
         public static function get_vehicles_filtered($sort_by, $filters) {
             $db = Database::getDB();
@@ -36,8 +47,18 @@
 
             $statement = $db->prepare($query);
             $statement->execute();
-            $vehicles = $statement->fetchAll();
+            $rows = $statement->fetchAll();
             $statement->closeCursor();
+
+            $vehicles = [];
+            foreach ($rows as $row) {
+                $make = MakesTable::get_make($row['make_id']);
+                $type = TypesTable::get_type($row['type_id']);
+                $class = ClassesTable::get_class($row['class_id']);
+                $vehicle = new Vehicle($make, $type, $class, $row['year'], $row['model'], $row['price']);
+                $vehicles[] = $vehicle;
+            }
+
             return $vehicles;
         }
 
